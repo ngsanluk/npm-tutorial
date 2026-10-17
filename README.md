@@ -1,5 +1,7 @@
 # Absolute Beginner's Guide to npm
 
+![](./images/banner.jpeg)
+
 Welcome to the world of Node.js and npm! If you are new to backend development or working with JavaScript outside the browser, package managers might sound intimidating. Don't worry—npm is simply an **app store for your code**.
 
 ---
@@ -24,7 +26,8 @@ npm -v
 ```
 
 ### 🎯 Mini-Exercise 0: The Health Check
-1. Open your terminal (macOS/Linux) or Command Prompt / PowerShell / Git Bash (Windows).
+
+1. Open your terminal (macOS/Linux) or PowerShell / Git Bash (Windows).
 2. Type `node -v` and hit **Enter**.
 3. Type `npm -v` and hit **Enter**.
 4. **Expected Result**: You should see version numbers printed (for example: `v20.x.x` and `10.x.x`). If you see an error like `command not found`, download and install Node.js from [nodejs.org](https://nodejs.org/).
@@ -41,6 +44,7 @@ Every Node project begins with a blueprint file named `package.json`. This file 
 - `npm init -y`: Skips all questions and accepts sensible defaults immediately (the `-y` stands for "yes").
 
 ### 🎯 Mini-Exercise 1: Create Your First Project
+
 1. In your terminal, make a new folder and move into it:
    ```bash
    mkdir my-first-node-project
@@ -64,17 +68,20 @@ When you want to add an external library to your project, you use the install co
 - `npm install <package-name>` (or the shortcut `npm i <package-name>`)
 
 ### What happens when you run this?
+
 - npm creates a folder called `node_modules` (where the actual code lives).
 - npm creates a `package-lock.json` file (a fingerprint lock ensuring everyone gets the exact same code versions).
 - npm records the package inside your `package.json` under `"dependencies"`.
 
 ### 🎯 Mini-Exercise 2: Say Hello with `cowsay`
+
 1. Inside your `my-first-node-project` folder, run:
    ```bash
    npm install cowsay
    ```
 2. Create a file called `index.js` in the same folder.
 3. Add the following JavaScript code to `index.js`:
+
    ```javascript
    const cowsay = require("cowsay");
 
@@ -83,9 +90,10 @@ When you want to add an external library to your project, you use the install co
        text: "I am using npm!",
        e: "oO",
        T: "U ",
-     })
+     }),
    );
    ```
+
 4. Run your code in the terminal:
    ```bash
    node index.js
@@ -104,6 +112,7 @@ Some tools are only needed while you are actively writing code (like code format
 - Shortcut: `npm i -D <package-name>`
 
 ### 🎯 Mini-Exercise 3: Add a Dev Dependency
+
 1. Install `nodemon` (a tool that automatically restarts Node apps when files change) as a development tool:
    ```bash
    npm i -D nodemon
@@ -124,6 +133,7 @@ The `"scripts"` section in `package.json` lets you define custom shortcuts for t
 - `npm run <custom-name>`: Runs any custom script name you define.
 
 ### 🎯 Mini-Exercise 4: Create a Shortcut Script
+
 1. Open `package.json` in your text editor.
 2. Locate the `"scripts"` object and add `"start"` and `"cow"` lines:
    ```json
@@ -151,14 +161,15 @@ As projects grow, you will want to manage installed packages.
 
 ### Commands
 
-| Command | What it does |
-| :--- | :--- |
-| `npm list --depth=0` | Lists top-level packages installed in your project |
-| `npm outdated` | Checks if newer versions of your packages exist |
-| `npm update` | Updates packages to the latest permitted version |
+| Command                   | What it does                                             |
+| :------------------------ | :------------------------------------------------------- |
+| `npm list --depth=0`      | Lists top-level packages installed in your project       |
+| `npm outdated`            | Checks if newer versions of your packages exist          |
+| `npm update`              | Updates packages to the latest permitted version         |
 | `npm uninstall <package>` | Removes a package from `node_modules` and `package.json` |
 
 ### 🎯 Mini-Exercise 5: List and Remove a Package
+
 1. Check what packages are installed:
    ```bash
    npm list --depth=0
@@ -176,6 +187,7 @@ As projects grow, you will want to manage installed packages.
 What if you just want to run a package once without downloading it into your project permanently? That is what `npx` (Node Package Execute) is for!
 
 ### 🎯 Mini-Exercise 6: Instant CLI Fun
+
 1. Run this directly in your terminal:
    ```bash
    npx cowsay "No local installation needed!"
@@ -189,6 +201,7 @@ What if you just want to run a package once without downloading it into your pro
 If you download code from GitHub, the `node_modules` folder is almost never included (because it is huge). How do you get the dependencies back?
 
 ### 🎯 Mini-Exercise 7: The Reinstall Test
+
 1. Delete your `node_modules` folder manually or run:
    - Mac/Linux: `rm -rf node_modules`
    - Windows (PowerShell): `Remove-Item -Recurse -Force node_modules`
@@ -202,15 +215,15 @@ If you download code from GitHub, the `node_modules` folder is almost never incl
 
 ## 10. Summary Cheat Sheet
 
-| Task | Command | Shortcut |
-| :--- | :--- | :--- |
-| Check versions | `node -v` / `npm -v` | |
-| Initialize project | `npm init` | `npm init -y` |
-| Install production package | `npm install <pkg>` | `npm i <pkg>` |
-| Install dev package | `npm install --save-dev <pkg>` | `npm i -D <pkg>` |
-| Restore all project packages | `npm install` | `npm i` |
-| Remove package | `npm uninstall <pkg>` | `npm un <pkg>` |
-| Run predefined scripts | `npm start` / `npm test` | |
-| Run custom script | `npm run <script-name>` | |
-| Execute one-time tool | `npx <pkg>` | |
-| Check for updates | `npm outdated` | |
+| Task                         | Command                        | Shortcut         |
+| :--------------------------- | :----------------------------- | :--------------- |
+| Check versions               | `node -v` / `npm -v`           |                  |
+| Initialize project           | `npm init`                     | `npm init -y`    |
+| Install production package   | `npm install <pkg>`            | `npm i <pkg>`    |
+| Install dev package          | `npm install --save-dev <pkg>` | `npm i -D <pkg>` |
+| Restore all project packages | `npm install`                  | `npm i`          |
+| Remove package               | `npm uninstall <pkg>`          | `npm un <pkg>`   |
+| Run predefined scripts       | `npm start` / `npm test`       |                  |
+| Run custom script            | `npm run <script-name>`        |                  |
+| Execute one-time tool        | `npx <pkg>`                    |                  |
+| Check for updates            | `npm outdated`                 |                  |
